@@ -17,7 +17,7 @@ class SlackTrackSerializer(serializers.Serializer):
 
     def get_utc_time(self,obj):
        utc_time=  datetime.now(timezone.utc)
-       date_list=utc_time.split('.')
+       date_list=str(utc_time).split('.')
        return getattr(obj, 'utc_time', f'{date_list[0]}Z')
 
         
