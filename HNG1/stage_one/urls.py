@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import Slack
+from .views import SlackTrackView
 urlpatterns=[
-    path('',)
+    path('',SlackTrackView.as_view(),name='slack_track'),
 ]
