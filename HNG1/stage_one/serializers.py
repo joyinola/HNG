@@ -16,9 +16,9 @@ class SlackTrackSerializer(serializers.Serializer):
     status_code=serializers.CharField(max_length=255,default=200)
 
     def get_utc_time(self,obj):
-       utc_time=  datetime.now(timezone.utc)
-       date_list=str(utc_time).split('.')
-       return getattr(obj, 'utc_time', f'{date_list[0]}Z')
+    #    utc_time= datetime.now(timezone.utc)
+       utc_time=datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+       return getattr(obj, 'utc_time', utc_time)
 
         
     def get_github_file_url(self,obj):
